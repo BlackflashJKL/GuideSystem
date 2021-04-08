@@ -21,7 +21,7 @@ private:
 public:
     Map(QString fileDir);//读入文件数据，初始化
     void RoutePlanning(Point src,Point dst);
-
+    void Find(QString req);
 };
 
 #endif // MAP_H

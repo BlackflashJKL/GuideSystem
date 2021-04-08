@@ -18,11 +18,11 @@ Map::Map(QString fileDir)
         cout<<"File found!!"<<endl;
         //the first line should be eaten in advance
         
-        int tot,id,x,y,cnt;
+        int NumberOfPoint,id,x,y,cnt;
         QString name[999];
-        map_file>>tot;
-        point = (Point*)malloc(tot*sizeof (Point));
-        for (int i = 0; i < tot; i++)
+        map_file>>NumberOfPoint;
+        point = (Point*)malloc(NumberOfPoint*sizeof (Point));
+        for (int i = 0; i < NumberOfPoint; i++)
         {
             map_file>>id>>x>>y>>cnt;
             for (int j = 0; j < cnt; j++)
@@ -39,4 +39,12 @@ Map::Map(QString fileDir)
     
 
     //2nd read each point and put into the point vec
+}
+
+Map::Find(QString req){
+    for (int i = 0; i < NumberOfPoint; i++)
+    {
+        point[i].isThisYourNmae(req);
+    }
+    
 }
