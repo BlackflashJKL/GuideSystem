@@ -10,9 +10,9 @@ protected:
     int id;//地图点的序号
     int x;
     int y;
-    QString name;
+    QString name[999];
 public:
-    Point();
+    Point(int _id,int _x,int _y,int cnt,QString* list);
 };
 
 #endif // POINT_H
