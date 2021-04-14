@@ -1,21 +1,21 @@
 #include "map.h"
 #include <fstream>
-#include<iostream>
-#include"point.h"
-#include<QTime>
-#include<stdio.h>
-#include<QDebug>
-#include<iostream>
-#include<string>
+#include <iostream>
+#include "point.h"
+#include <QTime>
+#include <stdio.h>
+#include <QDebug>
+#include <iostream>
+#include <string>
+#include <stdlib.h>
 
 using namespace std;
 
 Map::Map(string fileDir)
 {
-    int dotNum=0;
+    //int dotNum=0;
     //this place needs the filestream readin
     //1st read the total num and initiate
-
     ifstream map_file(fileDir,ios::in);
     
    // map_file.open(fileDir,ios::in);
@@ -24,29 +24,35 @@ Map::Map(string fileDir)
         cout<< "File not found!"<<endl;
     }
     else{
-        cout<<"File found!!"<<endl;
+        //cout<<"File found!!"<<endl;
         //the first line should be eaten in advance
         
         int _id,_x,_y,cnt;
-        char name[50];
+
         map_file>>NumberOfPoint;
+        //Point* point[NumberOfPoint];
         point=(Point**)malloc(NumberOfPoint*sizeof (Point*));
         for (int i = 0; i < NumberOfPoint; i++)
         {
             map_file>>_id>>_x>>_y>>cnt;
+            cout<<_id<<' '<<_x<<' '<<_y<<' '<<cnt<<' ';
+            string name[10];
             for (int j = 0; j < cnt; j++)
             {
-                map_file>>name;
+                map_file>>name[j];
             }
-
-            point[i]->initPoint(_id,_x,_y,cnt,name);
+            for(int j=0;j<cnt;j++){
+                cout<<name[j]<<endl;
+            }
+            *point[i]=Point();
+            point[i]->initPoint(_id,_x,_y,cnt/*,name*/);
             //在map类的构造函数里，读文件，初始化点
         }
         
     }
     map_file.close();
-    
-    Dijkstra(point[40],point[41]);//测试一下下
+    //qDebug()<<NumberOfPoint;
+    //Dijkstra(point[40],point[41]);//测试一下下
     //2nd read each point and put into the point vec
 }
 

@@ -1,11 +1,13 @@
 #include "mainwindow.h"
 #include"map.h"
 #include <QApplication>
+#include<QDir>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Map* shahe=new Map("M_dis.txt");
+    //QDir::setCurrent(a.applicationDirPath());
+    Map* shahe=new Map("DataOfPoint.txt");
     MainWindow w;
     w.show();
     return a.exec();
