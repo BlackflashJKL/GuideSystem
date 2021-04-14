@@ -2,8 +2,7 @@
 #define POINT_H
 
 #include <QDebug>
-#include <QString>
-
+using namespace std;
 class Point
 {
 protected:
@@ -11,10 +10,11 @@ protected:
     int x;
     int y;
     int name_num;
-    QString name[999];
+    char name[99];
 public:
-    Point(int _id,int _x,int _y,int cnt,QString* list);
-    bool isThisYourName(QString req);
+    void initPoint(int _id,int _x,int _y,int cnt,char* list);
+    bool isThisYourName(string req);
+    int getid();
 };
 
 #endif // POINT_H
