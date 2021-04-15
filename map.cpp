@@ -17,7 +17,7 @@ Map::Map(string fileDir)
     //this place needs the filestream readin
     //1st read the total num and initiate
     ifstream map_file(fileDir,ios::in);
-    
+
    // map_file.open(fileDir,ios::in);
     if (!map_file.is_open())
     {
@@ -26,12 +26,12 @@ Map::Map(string fileDir)
     else{
         //cout<<"File found!!"<<endl;
         //the first line should be eaten in advance
-        
+
         int _id,_x,_y,cnt;
 
         map_file>>NumberOfPoint;
-        //Point* point[NumberOfPoint];
-        point=(Point**)malloc(NumberOfPoint*sizeof (Point*));
+        Point* point[NumberOfPoint];
+        // point=(Point**)malloc(NumberOfPoint*sizeof (Point*));
         for (int i = 0; i < NumberOfPoint; i++)
         {
             map_file>>_id>>_x>>_y>>cnt;
@@ -44,11 +44,11 @@ Map::Map(string fileDir)
             for(int j=0;j<cnt;j++){
                 cout<<name[j]<<endl;
             }
-            *point[i]=Point();
-            point[i]->initPoint(_id,_x,_y,cnt/*,name*/);
+
+            point[i]=new Point(_id,_x,_y,cnt,name);
             //在map类的构造函数里，读文件，初始化点
         }
-        
+
     }
     map_file.close();
     //qDebug()<<NumberOfPoint;

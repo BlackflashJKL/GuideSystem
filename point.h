@@ -10,10 +10,10 @@ protected:
     int x;
     int y;
     int name_num;
-    string name[10];
+    string name[99];
 public:
-    Point();
-    void initPoint(int _id,int _x,int _y,int cnt/*,string list[10]*/);
+    Point(int _id, int _x, int _y, int cnt,string lis[99]);
+//    void initPoint(int _id,int _x,int _y,int cnt/*,string list[10]*/);
     bool isThisYourName(string req);
     int getid();
     string* getname();

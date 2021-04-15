@@ -3,18 +3,17 @@
 #include <stdlib.h>
 using namespace std;
 
-Point::Point(){
-
-}
-void Point::initPoint(int _id,int _x,int _y,int cnt/*string list[10]*/){
+Point::Point(int _id, int _x, int _y, int cnt,string lis[99])
+{
     id=_id;
-    this->x=_x;
-    this->y=_y;
-    this->name_num=cnt;
-//    for (int i = 0; i < cnt; i++)
-//    {
-//       this->name[i] = list[i];
-//    }
+    this->x = _x;
+    this->y = _y;
+    this->name_num = cnt;
+       for (int i = 0; i < cnt; i++)
+       {
+          this->name[i] = lis[i];
+       }
+
 }
 
 int Point::getid(){
