@@ -6,13 +6,16 @@ using namespace std;
 class Point
 {
 protected:
-    int id;//地图点的序号
+
+
     int x;
     int y;
     int name_num;
     string name[99];
 public:
-    Point(int _id, int _x, int _y, int cnt,string lis[99]);
+    int id;//地图点的序号
+
+    void fuckPoint(int _id, int _x, int _y, int cnt,string lis[99]);
 //    void initPoint(int _id,int _x,int _y,int cnt/*,string list[10]*/);
     bool isThisYourName(string req);
     int getid();
